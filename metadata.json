@@ -1,0 +1,6 @@
+{
+  "name": "Android Cards Hub",
+  "description": "An Android Material Design layout featuring rounded floating cards with shadows, widgets, and seamless Google OAuth sign-in.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
