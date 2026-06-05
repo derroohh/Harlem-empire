@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAF9F6"
+    android:fitsSystemWindows="true">
+
+    <!-- 1. Custom Light-Themed Support Status Bar Overlay -->
+    <LinearLayout
+        android:id="@+id/android_status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="#EFEFEF"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_statusbar_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10:00 AM"
+            android:textColor="#262626"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_status_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:text="Guest Mode"
+            android:textColor="#404040"
+            android:textSize="11dp" />
+
+        <ImageView
+            android:id="@+id/iv_statusbar_profile"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_default_avatar" />
+    </LinearLayout>
+
+    <!-- 2. OAuth Authentication Screen (Shows if not logged in) -->
+    <LinearLayout
+        android:id="@+id/login_card_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/android_status_bar"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="12dp"
+            app:cardBackgroundColor="#FFFFFF"
+            android:layout_margin="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Android Cards Hub"
+                    android:textColor="#171717"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Log in seamlessly using Google Identity support to launch coordinates."
+                    android:textColor="#737373"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="24dp"/>
+
+                <!-- Google OAuth Sign In Button -->
+                <Button
+                    android:id="@+id/btn_google_oauth_signin"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Sign In With Google"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/rounded_button_bg"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+    <!-- 3. Main Workspace and Content Container -->
+    <FrameLayout
+        android:id="@+id/android_screen_workspace"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/android_status_bar"
+        android:layout_above="@id/bottom_navigation"
+        android:visibility="gone">
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <!-- 4. Material You Style Bottom Navigation Bar -->
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        android:visibility="gone"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="#6366F1"
+        app:itemTextColor="#4F46E5" />
+
+</RelativeLayout>
